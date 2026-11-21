@@ -24,14 +24,14 @@ O sistema tem como objetivo auxiliar no controle de livros, permitindo o gerenci
 ## Estrutura do projeto
 
 Sebo-Encontro-dos-Rios/
-├── README.md
-├── main.py
-├── crud.py
-├── utils.py
-├── arquivo.py
-├── dados.py
-└── dados/
-    └── acervo.json
+├── README.md  
+├── main.py       
+├── crud.py       
+├── utils.py      
+├── arquivo.py     
+├── dados.py       
+└── dados/    
+ㅤㅤㅤ└── acervo.json       
 
 ## Funcionalidades
 
@@ -48,6 +48,6 @@ Instruções de execução serão adicionadas após a implementação do sistema
 
 ## Disciplina
 
-Programação I - Python
-Centro Universitário Santo Agostinho (UNIFSA)
+Programação I - Python                                                                                                                                         
+Centro Universitário Santo Agostinho (UNIFSA)          
 Teresina - Pi
