@@ -23,7 +23,7 @@ O sistema tem como objetivo auxiliar no controle de livros, permitindo o gerenci
 
 ## Estrutura do projeto
 
-Sebo-Encontro-dos-Rios/
+Sebo-Encontro-dos-Rios        
 ├── README.md  
 ├── main.py       
 ├── crud.py       
