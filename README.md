@@ -50,3 +50,4 @@ Instruções de execução serão adicionadas após a implementação do sistema
 
 Programação I - Python
 Centro Universitário Santo Agostinho (UNIFSA)
+Teresina - Pi
