@@ -14,8 +14,8 @@
         "titulo": "A morte de Ivan Ilitch",
         "autor": "Liev Tolstói",
         "isbn": "9786555528947",
-        "genero": "Novela, Ficção psicológica",
-        "conservacao": "Excelente",
+        "genero": "Ficção",
+        "conservacao": "Ótimo",
         "preco": 25.00,
         "quantidade": 10
     },
@@ -24,7 +24,7 @@
         "titulo": "A metamorfose",
         "autor": "Franz Kafka",
         "isbn": "9788594318787",
-        "genero": "Novela, Ficção fantástica",
+        "genero": "Ficção",
         "conservacao": "Regular",
         "preco": 32.00,
         "quantidade": 7
@@ -34,7 +34,7 @@
         "titulo": "O pequeno príncipe",
         "autor": "Antoine de Saint-Exupéry",
         "isbn": "9788595081512",
-        "genero": "Fábula, Literatura infantil",
+        "genero": "Infantil",
         "conservacao": "Bom",
         "preco": 28.00,
         "quantidade": 12
@@ -44,8 +44,8 @@
         "titulo": "Vidas Secas",
         "autor": "Graciliano Ramos",
         "isbn": "9786555877915",
-        "genero": "Romance, Modernismo",
-        "conservacao": "Excelente",
+        "genero": "Romance",
+        "conservacao": "Ótimo",
         "preco": 20.00,
         "quantidade": 8
     },
@@ -54,7 +54,7 @@
         "titulo": "O príncipe",
         "autor": "Nicolau Maquiavel",
         "isbn": "9786550974213",
-        "genero": "Tratado político, Filosofia",
+        "genero": "Outros",
         "conservacao": "Bom",
         "preco": 30.00,
         "quantidade": 3
@@ -64,10 +64,9 @@
         "titulo": "O código Da Vinci",
         "autor": "Dan Brown",
         "isbn": "9786555658118",
-        "genero": "Suspense, Mistério",
+        "genero": "Ficção",
         "conservacao": "Regular",
         "preco": 45.00,
         "quantidade": 6
     }
 ]
-
