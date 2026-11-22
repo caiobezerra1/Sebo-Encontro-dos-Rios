@@ -1,0 +1,73 @@
+[
+    {
+        "codigo": 1,
+        "titulo": "Dom Casmurro",
+        "autor": "Machado de Assis",
+        "isbn": "9788535910663",
+        "genero": "Romance",
+        "conservacao": "Bom",
+        "preco": 35.90,
+        "quantidade": 5
+    },
+    {
+        "codigo": 2,
+        "titulo": "A morte de Ivan Ilitch",
+        "autor": "Liev Tolstói",
+        "isbn": "9786555528947",
+        "genero": "Novela, Ficção psicológica",
+        "conservacao": "Excelente",
+        "preco": 25.00,
+        "quantidade": 10
+    },
+    {
+        "codigo": 3,
+        "titulo": "A metamorfose",
+        "autor": "Franz Kafka",
+        "isbn": "9788594318787",
+        "genero": "Novela, Ficção fantástica",
+        "conservacao": "Regular",
+        "preco": 32.00,
+        "quantidade": 7
+    },
+    {
+        "codigo": 4,
+        "titulo": "O pequeno príncipe",
+        "autor": "Antoine de Saint-Exupéry",
+        "isbn": "9788595081512",
+        "genero": "Fábula, Literatura infantil",
+        "conservacao": "Bom",
+        "preco": 28.00,
+        "quantidade": 12
+    },
+    {
+        "codigo": 5,
+        "titulo": "Vidas Secas",
+        "autor": "Graciliano Ramos",
+        "isbn": "9786555877915",
+        "genero": "Romance, Modernismo",
+        "conservacao": "Excelente",
+        "preco": 20.00,
+        "quantidade": 8
+    },
+    {
+        "codigo": 6,
+        "titulo": "O príncipe",
+        "autor": "Nicolau Maquiavel",
+        "isbn": "9786550974213",
+        "genero": "Tratado político, Filosofia",
+        "conservacao": "Bom",
+        "preco": 30.00,
+        "quantidade": 3
+    },
+    {
+        "codigo": 7,
+        "titulo": "O código Da Vinci",
+        "autor": "Dan Brown",
+        "isbn": "9786555658118",
+        "genero": "Suspense, Mistério",
+        "conservacao": "Regular",
+        "preco": 45.00,
+        "quantidade": 6
+    }
+]
+
