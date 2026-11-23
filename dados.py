@@ -9,12 +9,14 @@ generos_validos = (
     "Biografia",
     "Outros"
 )
+
 #Estados de conservação aceitos pelo sistema
 estados_validos = (
     "Ótimo",
     "Bom",
     "Regular",
 )
+
 #Lista que armazena os livros carregados do arquivo acervo.json
 livros = []
 
