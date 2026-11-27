@@ -3,6 +3,7 @@ from arquivo import carregar_livros
 #Carrega o acervo de livros ao iniciar o programa
 carregar_livros()
 
+#Função para exibir o menu principal do sistema
 def menu_principal():
     print("\nSEBO")
     print("1 - Cadastrar livro")
