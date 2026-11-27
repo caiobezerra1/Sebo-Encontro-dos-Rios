@@ -1,4 +1,4 @@
-from crud import listar_acervo, pesquisar_livros, buscar_codigo
+from crud import listar_acervo, pesquisar_livros, buscar_codigo, cadastrar_livros
 from arquivo import carregar_livros
 
 #Carrega o acervo de livros ao iniciar o programa
@@ -6,7 +6,7 @@ carregar_livros()
 
 #Função para exibir o menu principal do sistema
 def menu_principal():
-    print("\nSEBO")
+    print("\nSEBO\n")
     print("1 - Cadastrar livro")
     print("2 - Listar acervo")
     print("3 - Buscar livro")
@@ -22,7 +22,7 @@ def menu_principal():
 while True:
     opcao = menu_principal()
     if opcao == "1":
-        print("Cadastrar livro")
+        cadastrar_livros()
     elif opcao == "2":
         print("Livros cadastrados")
         listar_acervo()

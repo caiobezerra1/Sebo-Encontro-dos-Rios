@@ -8,24 +8,57 @@ from utils import (
     validar_quantidade
 )
 from dados import livros, isbns_cadastrados
-from arquivo import salvar_livros
-    
 
 def listar_acervo():
+    """Exibe todos os livros cadastrados em formato de tabela"""
+
     if not livros:
-        print("Nenhum livro encontrado")
+        print("Nenhum livro encontrado.")
         return
+
+    print("\n" + "=" * 100)
+    print("ACERVO DE LIVROS")
+    print("=" * 100)
+
+    print(
+        f"{'Código':<8}"
+        f"{'Título':<27}"
+        f"{'Autor':<25}"
+        f"{'Gênero':<15}"
+        f"{'Preço (R$)':>12}"
+        f"{'Qtd.':>8}"
+    )
+    print("-" * 100)
+
     for livro in livros:
         titulo = livro["titulo"]
         if len(titulo) > 25:
-            titulo = titulo[:22]+ "..."
-        print("\nTitulo", titulo)
-        print("Código", livro["codigo"])
-        print("Autor", livro["autor"])
-        print("Gênero", livro["genero"])
-        print(f"Preço R${livro["preco"]:.2f}")
-        print("Quantidade", livro["quantidade"])
+            titulo = titulo[:22] + "..."
 
+        print(
+            f"{livro['codigo']:<8}"
+            f"{titulo:<27}"
+            f"{livro['autor']:<25}"
+            f"{livro['genero']:<15}"
+            f"{livro['preco']:>12.2f}"
+            f"{livro['quantidade']:>8}"
+        )
+    print("=" * 100)
+
+def exibir_dados_livro(livro):
+    """Mostra todos os dados de um livro qualquer"""
+
+    print("\n------------------------------")
+    print("LIVRO ENCONTRADO")
+    print("------------------------------")
+    print("Código:", livro["codigo"])
+    print("Título:", livro["titulo"])
+    print("Autor:", livro["autor"])
+    print("ISBN:", livro["isbn"])
+    print("Gênero:", livro["genero"])
+    print("Conservação:", livro["conservacao"])
+    print(f"Preço: R$ {livro['preco']:.2f}")
+    print("Quantidade:", livro["quantidade"])
 
 def pesquisar_livros():
     """Tem como finalidae buscar pelos titulos de livros contidos na lista"""
@@ -38,7 +71,7 @@ def pesquisar_livros():
     
         for livro in livros:
             if pesquisa in livro["titulo"].lower():
-                print("Livro Encontrado" ,livro['titulo'])
+                exibir_dados_livro(livro)
                 encontrados = True
 
         if not encontrados:
@@ -52,14 +85,13 @@ def buscar_codigo():
     """Funciona como outro método de pesquisa além da por titulo"""
     while True:
         codigo = input("Digite o código do livro: ").strip()
-
+        
         encontrado = False
 
         for livro in livros:
             if str(livro["codigo"]) == codigo:
-                print("Livro Encontrado: ", livro["titulo"])
+                exibir_dados_livro(livro)
                 encontrado = True
-                break
 
         if not encontrado:
             print("Nenhum livro encontrado")
@@ -105,3 +137,21 @@ def cadastrar_livros():
         print("Quantidade inválida")
         return
 
+    novo_livro = {
+        "codigo": gerar_codigo(),
+        "titulo": titulo,
+        "autor": autor,
+        "isbn": isbn,
+        "genero": genero,
+        "conservacao": conservacao,
+        "preco": preco,
+        "quantidade": quantidade
+    }
+    livros.append(novo_livro)
+    isbns_cadastrados.add(isbn)
+    print("Livro cadastrado com sucesso!")
+
+def gerar_codigo():
+    """Gera um código único para cada livro cadastrado, para garantir que não tenha dois codigos iguais"""
+    maior_codigo = max((livro["codigo"] for livro in livros), default=0)
+    return maior_codigo + 1
