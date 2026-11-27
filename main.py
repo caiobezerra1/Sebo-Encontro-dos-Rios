@@ -1,3 +1,4 @@
+from crud import listar_acervo, pesquisar_livros
 from arquivo import carregar_livros
 
 #Carrega o acervo de livros ao iniciar o programa
@@ -24,8 +25,10 @@ while True:
         print("Cadastrar livro")
     elif opcao == "2":
         print("Livros cadastrados")
+        listar_acervo()
     elif opcao == "3":
         print("Buscar livros")
+        pesquisar_livros()
     elif opcao == "4":
         print("Editar livro")
     elif opcao == "5":
