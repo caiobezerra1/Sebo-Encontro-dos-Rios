@@ -1,4 +1,4 @@
-from crud import listar_acervo, pesquisar_livros
+from crud import listar_acervo, pesquisar_livros, buscar_codigo
 from arquivo import carregar_livros
 
 #Carrega o acervo de livros ao iniciar o programa
@@ -27,8 +27,20 @@ while True:
         print("Livros cadastrados")
         listar_acervo()
     elif opcao == "3":
-        print("Buscar livros")
-        pesquisar_livros()
+        print("1. Pesquisar pelo título")
+        print("2. Pesquisar pelo código")
+
+        tipo_busca = input("Escolha uma opção: ").strip()
+        
+        if tipo_busca == "1":
+            pesquisar_livros()
+        
+        elif tipo_busca == "2":
+            buscar_codigo()
+        
+        else:
+            print("Opção inválida")
+        
     elif opcao == "4":
         print("Editar livro")
     elif opcao == "5":
