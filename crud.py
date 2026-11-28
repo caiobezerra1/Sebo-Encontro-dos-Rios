@@ -8,6 +8,7 @@ from utils import (
     validar_quantidade
 )
 from dados import livros, isbns_cadastrados
+from arquivo import salvar_livros
 
 def listar_acervo():
     """Exibe todos os livros cadastrados em formato de tabela"""
@@ -149,9 +150,61 @@ def cadastrar_livros():
     }
     livros.append(novo_livro)
     isbns_cadastrados.add(isbn)
+    salvar_livros()
     print("Livro cadastrado com sucesso!")
 
 def gerar_codigo():
     """Gera um código único para cada livro cadastrado, para garantir que não tenha dois codigos iguais"""
     maior_codigo = max((livro["codigo"] for livro in livros), default=0)
     return maior_codigo + 1
+
+def registrar_venda():
+    """Tem como objetivo registrar a venda de livros e atualizar o estoque"""
+    print("\n---VENDA DE LIVROS---")
+    print("1. Buscar livro pelo título")
+    print("2. Buscar livro pelo código")
+    opcao = input("Escolha uma opção: ").strip()
+    
+    if opcao == "1":
+        pesquisar_livros()
+    
+    elif opcao == "2":
+        buscar_codigo()
+    
+    else:
+        print("Opção inválida")
+        return
+    codigo = input("Digite o código do livro que deseja comprar: ").strip()
+    livro_encontrado = None
+    for livro in livros:
+        if str(livro["codigo"])== codigo:
+            livro_encontrado = livro 
+            break
+    if livro_encontrado is None:
+        print("Livro não encontrado...")
+        return
+    try:
+        quantidade_de_venda = int(input("Digite a quantidade desejada: "))
+    except ValueError:
+        print("Digite uma quantidade válida.")
+        return
+    if quantidade_de_venda <= 0:
+        print("Quantidade inválida")
+        return
+    if quantidade_de_venda > livro_encontrado["quantidade"]:
+        print("Estoque insuficiente.")
+        return
+    preco = livro_encontrado["preco"]
+
+    if livro_encontrado["conservacao"] == "Regular":
+        preco = preco * 0.80
+
+    total = preco * quantidade_de_venda
+
+    livro_encontrado["quantidade"] -= quantidade_de_venda
+
+    salvar_livros()
+
+    print("Venda registrada!")
+    print(f"Valor total da venda: R$ {total:.2f}")
+    print(f"Estoque de livros retantes: {livro_encontrado['quantidade']}")

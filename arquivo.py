@@ -54,3 +54,4 @@ def salvar_livros():
         print("Acervo salvo com sucesso!")
     except (OSError, TypeError) as e:
         print(f"Erro ao salvar o acervo: {e}")
+

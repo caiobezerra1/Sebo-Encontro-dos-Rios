@@ -22,3 +22,4 @@ livros = []
 
 #Conjunto que armazena os ISBNs dos livros cadastrados
 isbns_cadastrados = set()
+
