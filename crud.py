@@ -208,3 +208,110 @@ def registrar_venda():
     print("Venda registrada!")
     print(f"Valor total da venda: R$ {total:.2f}")
     print(f"Estoque de livros retantes: {livro_encontrado['quantidade']}")
+
+def editar_livro():
+    """Permitir editar as informações de um livro cadastrado."""
+    print("\n---EDITAR LIVRO---")
+    print("1. Buscar livro pelo título")
+    print("2, Buscar livro pelo código")
+
+    opcao = input("Escolha uma opção: ").strip()
+
+    if opcao == "1":
+        pesquisar_livros()
+
+    elif opcao == "2":
+        buscar_codigo()
+
+    else:
+        print("Opção inválida.")
+        return
+    
+    codigo = input("Digite o código do livro que deseja editar: ").strip()
+
+    livro_encontrado = None
+
+    for livro in livros:
+        if str(livro["codigo"]) == codigo:
+            livro_encontrado = livro
+            break
+    if livro_encontrado is None:
+          print("Nenhum livro")
+          return
+
+    exibir_dados_livro(livro_encontrado)
+    print("\nPressione Enter para manter o valor atual.")
+
+    titulo = input("Novo título: ").strip().title()
+    autor = input("Novo autor: ").strip().title()
+    isbn = input("Novo ISBN: ").strip()
+    genero = input("Novo gênero: ").strip().title()
+    conservacao = input("Novo estado de conservação: ").strip().title()
+    preco = input("Novo preço: ").strip()
+    quantidade = input("Nova quantidade livros: ").strip()
+
+    if not titulo:
+        titulo = livro_encontrado["titulo"]
+
+    if not autor:
+        autor = livro_encontrado["autor"]
+
+    if not isbn:
+        isbn = livro_encontrado["isbn"]
+
+    if not genero:
+        genero = livro_encontrado["genero"]
+
+    if not conservacao:
+        conservacao = livro_encontrado["conservacao"]
+
+    if not preco:
+        preco = livro_encontrado["preco"]
+
+    if not quantidade:
+        quantidade = livro_encontrado["quantidade"]
+
+    if not validar_texto(titulo) or not validar_texto(autor):
+        print("Titulo ou autor inválido.")
+        return
+
+    if not validar_isbn(isbn):
+        print("ISBN inválido.")
+        return
+
+    if isbn != livro_encontrado["isbn"] and isbn_duplicado(isbn, isbns_cadastrados):
+        print("Este ISBN já está cadastrado.")
+        return
+
+    if not validar_conservacao(conservacao):
+        print("Tipo inválido.")
+        return
+
+    if not validar_genero(genero):
+        print("Gênero inválido.")
+        return
+
+    if not validar_quantidade(quantidade):
+        print("Quantidade inválida")
+        return
+
+    if not validar_preco(preco):
+        print("Preço inválido.")
+        return
+    preco = float(preco)
+    quantidade = int(quantidade)
+
+    if isbn != livro_encontrado["isbn"]:
+        isbns_cadastrados.discard(livro_encontrado["isbn"])
+        isbns_cadastrados.add(isbn)
+
+    livro_encontrado["titulo"] = titulo
+    livro_encontrado["autor"] = autor
+    livro_encontrado["isbn"] = isbn
+    livro_encontrado["genero"] = genero
+    livro_encontrado["conservacao"] = conservacao
+    livro_encontrado["preco"] = preco
+    livro_encontrado["quantidade"] = quantidade
+    salvar_livros()
+
+    print("Livro atualizado!")

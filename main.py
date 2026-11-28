@@ -1,4 +1,4 @@
-from crud import listar_acervo, pesquisar_livros, buscar_codigo, cadastrar_livros, registrar_venda
+from crud import listar_acervo, pesquisar_livros, buscar_codigo, cadastrar_livros, registrar_venda, editar_livro
 from arquivo import carregar_livros
 
 #Carrega o acervo de livros ao iniciar o programa
@@ -42,7 +42,7 @@ while True:
             print("Opção inválida")
         
     elif opcao == "4":
-        print("Editar livro")
+        editar_livro()
     elif opcao == "5":
         registrar_venda()
     elif opcao == "6":
